@@ -114,8 +114,8 @@ func main() {
 	router.HandleFunc("/movies", getMovies).Methods("GET")
 	router.HandleFunc("/movies/{id}", getMovie).Methods("GET")
 	router.HandleFunc("/movies", createMovie).Methods("POST")
-	router.HandleFunc("/movies", updateMovie).Methods("PUT")
-	router.HandleFunc("/movies", deleteMovie).Methods("DELETE")
+	router.HandleFunc("/movies/{id}", updateMovie).Methods("PUT")
+	router.HandleFunc("/movies/{id}", deleteMovie).Methods("DELETE")
 
 	fmt.Printf("Starting server at port 3333...")
 	log.Fatal(http.ListenAndServe(":3333", router))
